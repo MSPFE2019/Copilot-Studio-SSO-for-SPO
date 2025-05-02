@@ -1,5 +1,3 @@
-# Copilot-Studio-SSO-for-SPO
-
 # Deploy Microsoft Copilot Studio Copilot as a SharePoint Component with SSO
 
 This guide explains how to deploy a **Microsoft Copilot Studio Copilot** as a **SharePoint Framework (SPFx) component** with **Single Sign-On (SSO)** enabled using a prebuilt `.sppkg` file.
@@ -21,7 +19,23 @@ To complete the deployment, follow these high-level steps:
 
 Follow the [official guide](https://learn.microsoft.com/en-us/power-virtual-agents/configure-user-authentication) and additionally:
 
+* ✅ **Create Token Exchange URL** in your Copilot authentication settings:
+
+  * Navigate to **Expose an API** in your app registration.
+  * Create a new scope, for example `SPO.Read`.
+  * Once created, go to **API permissions → APIs my organization uses**.
+  * Search for your Copilot app name, select it, and add the `SPO.Read` permission.
+
+* ✅ **Required**: Add the following **Microsoft Graph delegated API permissions** to the Copilot app registration:
+
+  * `Files.Read.All`
+  * `openid`
+  * `profile`
+  * `Sites.Read.All`
+  * `User.Read`
+
 * ✅ **Required**: Populate the **Token Exchange URL** in your Copilot authentication settings. This must be the full URI of the **custom scope**.
+
 * ✅ **Optional**: If using **Generative Answers** over SharePoint/OneDrive, grant additional API permissions.
 
 ### Example Token Exchange URL
@@ -96,6 +110,28 @@ This generates the `.sppkg` under `sharepoint/solution/`.
 2. Upload `pva-extension-sso.sppkg`
 3. Choose **Enable App**, *not* "Enable this app and add to all sites"
 4. Add the app to the same site used as your redirect URI.
+
+---
+
+## Setup in Copilot Studio
+
+In Copilot Studio, go to **Settings → Security → Authenticate manually** and configure the following:
+
+* **Require users to sign in**: ✅ Enabled
+* **Redirect URL**:
+  `https://token.botframework.com/.auth/web/redirect`
+* **Service provider**:
+  `Azure Active Directory v2`
+* **Client ID**:
+  Enter the Client ID from your Copilot’s App Registration
+* **Client Secret**:
+  Enter the Client Secret from your Copilot’s App Registration
+* **Token Exchange URL (required for SSO)**:
+  `api://46982118-ac3a-424f-b9a2-fee8ced5708f/SPO.Read`
+* **Tenant ID**:
+  Your Azure tenant ID
+* **Scopes**:
+  `profile openid`
 
 ---
 
