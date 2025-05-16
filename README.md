@@ -171,3 +171,10 @@ Download the prebuilt `.sppkg` file:
                                    └────── SSO via SPA + Copilot Custom Scope ──────┘
                                             ▼
                                      [ Bot Framework WebChat ]
+
+✅ Final Notes
+Only one app registration (Copilot Studio’s) is required.
+
+The provided .sppkg file is ready for deployment.
+
+Use the PowerShell script to scope deployment and customize the chat button.
