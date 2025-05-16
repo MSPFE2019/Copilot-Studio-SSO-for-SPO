@@ -1,4 +1,3 @@
-````markdown
 # Deploy Microsoft Copilot Studio Copilot as a SharePoint Component with SSO
 
 This guide explains how to deploy a **Microsoft Copilot Studio Copilot** as a **SharePoint Framework (SPFx) component** with **Single Sign-On (SSO)** enabled using a prebuilt `.sppkg` file.
