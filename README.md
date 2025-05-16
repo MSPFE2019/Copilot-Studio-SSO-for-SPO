@@ -171,6 +171,10 @@ Download the prebuilt `.sppkg` file:
                                    └────── SSO via SPA + Copilot Custom Scope ──────┘
                                             ▼
                                      [ Bot Framework WebChat ]
+ ```
+
+---
+
 
 ✅ Final Notes
 Only one app registration (Copilot Studio’s) is required.
