@@ -177,6 +177,7 @@ Download the prebuilt `.sppkg` file:
 
 
 ✅ Final Notes
+----
 Only one app registration (Copilot Studio’s) is required.
 
 The provided .sppkg file is ready for deployment.
